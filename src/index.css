@@ -1,0 +1,161 @@
+/* ===== AgroMind AI — Design Tokens ===== */
+:root {
+  /* Color */
+  --canopy: #153A2B;        /* deep forest, primary dark */
+  --canopy-ink: #0E2A1F;    /* near-black green, body text */
+  --field: #F5F6F0;         /* pale sage-white, page background */
+  --field-raised: #FFFFFF;  /* card surfaces */
+  --growth: #3E8E5A;        /* primary action green */
+  --growth-deep: #2C6B42;   /* hover state */
+  --wheat: #E0A438;         /* warm data accent */
+  --rust: #C1502E;          /* functional alert (disease only) */
+  --line: #DEE3D6;          /* hairline borders */
+  --ink-soft: #4B5A52;      /* secondary text */
+
+  /* Type */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Manrope", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Layout */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+  --container: 1200px;
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--field);
+  color: var(--canopy-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  color: var(--canopy-ink);
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+img, svg { display: block; max-width: 100%; }
+
+::selection {
+  background: var(--growth);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--growth-deep);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--growth-deep);
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--growth);
+  color: white;
+  box-shadow: 0 1px 2px rgba(21, 58, 43, 0.12);
+}
+
+.btn-primary:hover {
+  background: var(--growth-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(46, 107, 66, 0.28);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--canopy-ink);
+  border: 1.5px solid var(--line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--canopy-ink);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+/* Scroll reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

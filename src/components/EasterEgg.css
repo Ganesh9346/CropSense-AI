@@ -1,0 +1,44 @@
+.egg {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(14, 42, 31, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: egg-fade 0.25s ease;
+}
+
+@keyframes egg-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.egg__card {
+  background: var(--field-raised);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.4);
+}
+
+.egg__sprout {
+  font-size: 40px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.egg__card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.egg__card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
