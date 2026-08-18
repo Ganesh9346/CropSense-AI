@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProductDemo from "./components/ProductDemo";
@@ -9,12 +10,24 @@ import Footer from "./components/Footer";
 import EasterEgg from "./components/EasterEgg";
 
 export default function App() {
+  useEffect(() => {
+    if (window.location.hash) return;
+
+    const demoSection = document.getElementById("demo");
+    if (!demoSection) return;
+
+    window.history.replaceState(null, "", "#demo");
+    requestAnimationFrame(() => {
+      demoSection.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
       <main>
-        <Hero />
         <ProductDemo />
+        <Hero />
         <Features />
         <HowItWorks />
         <InsightsPreview />
